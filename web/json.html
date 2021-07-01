@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+<table border="1px" width="200px">
+    <tr>
+        <td>姓名</td>
+        <td>性别</td>
+    </tr>
+</table>
+<select>
+    <option></option>
+</select>
+<script>
+    var person = {"name": "张三", "gender": "男"};
+    console.log(person.name);
+    console.log(person.gender);
+
+    // var arr = ["周一","周二","周三","周四","周五"];
+    // console.log(arr[0]);
+    /*for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }*/
+
+    // $(arr).each(function () {
+    //     console.log($(this));
+    // })
+
+    var arr = [
+        {"name": "张三", "gender": "男"},
+        {"name": "李四", "gender": "男"},
+        {"name": "王五","gender": "女"},
+        {"name": "赵六", "gender": "男"}
+        ];
+
+ /*   $(arr).each(function (i,o) {
+        var $tr = $("<tr><td>"+o.name+"</td><td>"+o.gender+"</td></tr>");
+        $("table").append($tr);
+    })*/
+
+    for (let i = 0; i < arr.length; i++) {
+        var $tr = $("<tr><td>"+arr[i].name+"</td><td>"+arr[i].gender+"</td></tr>");
+        $("table").append($tr);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+<!--用户名：<input type="text" id="username" name="username" onkeyup="checkUser()"/><apan></apan>-->
+用户名：<input type="text" id="username" name="username"/><span></span>
+
+<script type="text/javascript">
+    $(function () {
+        $("#username").keyup(function () {
+            $.ajax({
+                url:"hello.do",
+                type:"get",
+                data:"username="+$(this).val(),
+                dataType:"text",
+                success:function (result) {
+                    if (result == 1){
+                        $("span").html("用户名已存在").css("color","red");
+                    }else{
+                        $("span").html("用户名可以使用").css("color","green");
+                    }
+                }
+            })
+        })
+    })
+
+   /* var xhr = new XMLHttpRequest();//ie7以上版本支持，如果ie6不支持
+    var user = document.getElementById("username");
+
+    function checkUser(){
+        //创建请求
+        // xhr.open("get","hello.do?username="+user.value,true);
+        // xhr.send(null);
+        xhr.open("post","hello.do",true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send("username="+user.value);
+        //设置回调函数
+        xhr.onreadystatechange=callback;
+    }
+    
+    function callback() {
+        //当成功响应时获取返回的结果
+        if(xhr.readyState == 4 && xhr.status == 200){
+            var result = xhr.responseText;//返回的是1或0
+            if (result == 1){
+                user.nextElementSibling.innerHTML="用户名已存在";
+            }else{
+                user.nextElementSibling.innerHTML="用户名可以使用";
+            }
+
+        }
+    }*/
+</script>
+</body>
+</html>
